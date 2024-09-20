@@ -533,7 +533,7 @@ function printBoard(act) {
     ctx.lineWidth = 5;
     ctx.strokeStyle = 'red';
     // mark origin brick
-    ctx.strokeRect(act.row*block_size, act.col*block_size, block_size, block_size);
+    ctx.strokeRect(act.col*block_size, act.row*block_size, block_size, block_size);
     // ctx.strokeRect(0, 0, 64, 64);
     // mark dest brick
     var dest_row, dest_col;
@@ -543,7 +543,7 @@ function printBoard(act) {
             dest_col = act.col + act.step;
             break;
         case 1:
-            dest_row = act.row + act.step;
+            dest_row = act.row - act.step;
             dest_col = (act.mrg==0) ? act.col+act.dist_mrg : act.col-act.dist_mrg;
             break;
         case 2:
@@ -551,17 +551,17 @@ function printBoard(act) {
             dest_col = act.col - act.step;
             break;
         case 3:
-            dest_row = act.row - act.step;
+            dest_row = act.row + act.step;
             dest_col = (act.mrg==0) ? act.col+act.dist_mrg : act.col-act.dist_mrg;
             break;
     }
-    ctx.strokeRect(dest_row*block_size, dest_col*block_size, block_size, block_size);
+    ctx.strokeRect(dest_col*block_size, dest_row*block_size, block_size, block_size);
     // mark movement if larger than 0
     if(act.step>0) {
         if(act.dir==0 || act.dir==2){ // hor
-            drawArrow(act.row*block_size+block_size/2, act.col*block_size+block_size/2, act.row*block_size+block_size/2, dest_col*block_size+block_size/2);
+            drawArrow(act.col*block_size+block_size/2, act.row*block_size+block_size/2, dest_col*block_size+block_size/2, act.row*block_size+block_size/2);
         } else { // ver
-            drawArrow(act.row*block_size+block_size/2, act.col*block_size+block_size/2, dest_row*block_size+block_size/2, act.col*block_size+block_size/2);
+            drawArrow(act.col*block_size+block_size/2, act.row*block_size+block_size/2, act.col*block_size+block_size/2, dest_row*block_size+block_size/2);
         }
     }
 }
