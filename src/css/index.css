@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+    background-image: url("../image/bg.jpg");
+    background-repeat: repeat;
+}
+
+#fileInput{
+    display:block;
+    margin:20px auto;
+    width:200px;
+    padding:10px 10px;
+}
+
+#canvasOutput{
+    /* width:450px;
+    height:450px;  */  /*canvas标签类似图片，需要修改尺寸，而不是设置样式*/
+    display: block;
+    margin: 30px auto;
+    background-color: #9d6723/*#b9853f;*/
+    /* box-shadow: -2px -2px 2px #EFEFEF, 5px 5px 5px #B9B9B9; */
+}
